@@ -1,0 +1,26 @@
+workflows:
+  android-build:
+    name: Android Build
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      groups:
+        - android_signing
+    scripts:
+      - name: Install Python dependencies
+        script: |
+          pip install -r flet_app/requirements.txt
+      - name: Run Flet server
+        script: |
+          flet run flet_app/main.py --port 8550 &
+      - name: Build Flutter APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/**/outputs/apk/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - your_email@example.com

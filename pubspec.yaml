@@ -1,0 +1,17 @@
+name: cham_card
+description: A flashcard app for learning words.
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.8.0
+  flutter_local_notifications: ^17.2.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - flet_app/assets/BNazanin.ttf
